@@ -49,4 +49,5 @@ if (mysqli_affected_rows($link)==0){
 
 mysqli_close($link);
 err_message("회원 가입에 성공했습니다.","login-form.php");
+
 ?>

@@ -8,7 +8,7 @@
             function check_data(){
                 var email=
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                var userid=/^[a-zA-Z]+[0-9A-Za-z]{3,15}$/; //이메일 형식 제대로 되었는지 확인하는 코드
+                var userid=/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i//이메일 형식 제대로 되었는지 확인하는 코드
             
                 if (document.getElementById("userid").value ==""){
                     alert("사용자ID를 입력하세요.");
@@ -64,7 +64,6 @@
 
             <span class="active"><a href="register-form.php">회원가입</a></span>
             <span><a href="login-form.php">로그인</a></span>
-            <span><a href="logout.php">로그아웃</a></span>
         </nav>
         <div>
             <form action="register.php" method="post" onsubmit="return check_data();">
@@ -86,7 +85,7 @@
                         <td class="form-data">
                             <input type="password" name="password"
                             id="password" class="input-text"
-                            placeholder="8~16자 사이에서 입력하세요.">
+                            >
                             <input type="password" name="repassword"
                             id="repassword" class="input-text"
                             placeholder="비밀번호를 다시 한번 입력하세요.">
