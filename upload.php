@@ -1,19 +1,3 @@
-<?php
-require_once 'lib.php';
-
-$link= mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
-//
-if (!$link){
-    err_message("DB 연결에 실패했습니다.<br>");
-}
-
-$char=mysqli_set_charset($link,"utf8");
-if (!$char){
-    err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,8 +11,10 @@ if (!$char){
             }
         </style>
     </head>
-    <body>
-    <?php
+</html>
+
+<?php
+    require_once 'lib.php';
     if ($_FILES['the_file']['error']>0)
     {
         echo 'Problem: ';
@@ -58,7 +44,6 @@ if (!$char){
         }
         exit;
     }
-  
 
     //원하는 곳으로 파일을 이동시킨다.
     $uploaded_file = './uploads/'.$_FILES['the_file']['name'];
@@ -76,12 +61,17 @@ if (!$char){
         echo $_FILES['the_file']['name'];
         exit;
     }
+    
+    
+    $_SESSION["file_name"]=$_FILES['the_file']['name'];
+    $_SESSION["file_addr"]=$uploaded_file; 
 
-    echo 'File uploaded successfully.';
+    err_message('"성공적으로 파일을 업로드 했습니다!'.$_SESSION["file_addr"]'');
 
-//업로드된 이미지를 보여준다.
-echo '<p>You uploaded the following image:<br/>';
-echo '<img src="./uploads/'.$_FILES['the_file']['name'].'"/>';
+    /*업로드된 이미지를 보여준다.
+    echo '<p>You uploaded the following image:<br/>';
+    echo '<img src="./uploads/'.$_FILES['the_file']['name'].'"/>';
+    */
+
+
 ?>
-</body>
-</html>

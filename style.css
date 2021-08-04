@@ -4,8 +4,6 @@
 * {font-family:"Nanum Gotic","맑은 고딕",gulim;}
 body {width:700px; margin:0 auto; font-size:10pt;}
 a {text-decoration:none; color:black;}
-h1,h2,h3, #main-title {text-align:center; clear:both;}
-
 
 div { 
     display:block;
@@ -13,6 +11,7 @@ div {
 nav {background-color:#ABC6DD; margin:10px 0;}
 nav span {display:inline-block; padding:10px;}
 table {margin:0 auto; border:1px solid #ddd;}
+textarea{width:500px; height:100px; resize:none;}
 .active {font-weight:bold; text-decoration:underline;}
 .input-text {width:200px;}
 .form-button {width:80px;}

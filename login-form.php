@@ -29,8 +29,7 @@
                             <label>아이디</label>
                         </td>
                         <td class="form-data">
-                            <input type="text" name="userid" id="userid" class="input-text">
-                            
+                            <input type="text" name="userid" id="userid" class="input-text">                           
                         </td>
                     </tr>
                     <tr>
