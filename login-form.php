@@ -4,15 +4,22 @@
         <meta charset="UTF-8">
         <title>로그인폼</title>
         <link href ="style.css" rel="stylesheet" type="text/css">
+        <style>
+            body{
+                    background-image: url('../pictures/ssg.png');
+                    background-position: bottom bottom;
+                    background-attachment: local;
+                    background-repeat: no-repeat;
+            }
+        </style>
     </head>
     <body>
         <div>
-            <h1>로그인폼</h1>
+            <h1>로그인</h1>
         </div>
         <nav>
             <span><a href="register-form.php">회원가입</a></span>
             <span class="active"><a href="login-form.php">로그인</a></span>
-            <span><a href="logout.php">로그아웃</a></span>
         </nav>
         <div>
             <form action="login.php" method="post">

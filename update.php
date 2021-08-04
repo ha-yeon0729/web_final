@@ -50,6 +50,14 @@ if (isset($_GET['id'])){
         <meta charset="UTF-8">
         <title>글 작성</title>
         <link href ="style.css" rel="stylesheet" type="text/css">
+        <style>
+            body{
+                    background-image: url('../pictures/ssg.png');
+                    background-position: bottom bottom;
+                    background-attachment: local;
+                    background-repeat: no-repeat;
+            }
+        </style>
     </head>
     <body>
         <form action="update_process.php" method="post">

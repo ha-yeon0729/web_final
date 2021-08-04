@@ -19,7 +19,7 @@ if (!$char){
 (!empty($_POST["email"]))?$email=mysqli_real_escape_string($link,trim($_POST["email"])):err_message("이메일 주소를 입력하세요");
 (!empty($_POST["phone"]))?$phone=mysqli_real_escape_string($link,trim($_POST["phone"])):err_message("연락처를 입력하세요");
 
-if ($password<> $repassword){
+if ($password <> $repassword){
     err_message("비밀번호가 일치하지 않습니다.");
 }
 

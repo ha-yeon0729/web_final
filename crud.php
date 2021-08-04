@@ -62,6 +62,14 @@ $logout_link='<a href="logout.php?no='.$no.'">로그아웃</a>';
         <meta charset="UTF-8">
         <title>crud</title>
         <link href ="style.css" rel="stylesheet" type="text/css">
+        <style>
+            body{
+                    background-image: url('../pictures/ssg.png');
+                    background-position: bottom bottom;
+                    background-attachment: local;
+                    background-repeat: no-repeat;
+            }
+            </style>
     </head>
     <body>
         <div>

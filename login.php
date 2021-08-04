@@ -13,10 +13,8 @@ if (!$char){
     err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
 }
 
-(!empty($_POST["userid"]))? $userid=mysqli_real_escape_string(
-    $link,trim($_POST["userid"])): err_message("회원 아이디를 입력하세요");
-(!empty($_POST["password"]))? $password=mysqli_real_escape_string(
-    $link,trim($_POST["password"])):err_message("비밀번호를 입력하세요");
+(!empty($_POST["userid"]))? $userid = mysqli_real_escape_string($link,trim($_POST["userid"])) : err_message("회원 아이디를 입력하세요");
+(!empty($_POST["password"]))? $password = mysqli_real_escape_string($link,trim($_POST["password"])) : err_message("비밀번호를 입력하세요");
 
 $sql="SELECT `no`               
     FROM `book_members`         

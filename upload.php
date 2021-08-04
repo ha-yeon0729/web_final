@@ -1,7 +1,31 @@
+<?php
+require_once 'lib.php';
+
+$link= mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
+//
+if (!$link){
+    err_message("DB 연결에 실패했습니다.<br>");
+}
+
+$char=mysqli_set_charset($link,"utf8");
+if (!$char){
+    err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Uploading...</title>
+        <style>
+            body{
+                    background-image: url('../pictures/ssg.png');
+                    background-position: bottom bottom;
+                    background-attachment: local;
+                    background-repeat: no-repeat;
+            }
+        </style>
     </head>
     <body>
     <?php
@@ -57,7 +81,7 @@
 
 //업로드된 이미지를 보여준다.
 echo '<p>You uploaded the following image:<br/>';
-echo '<img src="../uploads/'.$_FILES['the_file']['name'].'"/>';
+echo '<img src="./uploads/'.$_FILES['the_file']['name'].'"/>';
 ?>
 </body>
 </html>

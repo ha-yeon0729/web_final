@@ -4,6 +4,14 @@
         <meta charset="UTF-8">
         <title>회원가입폼</title>
         <link href="style.css" rel="stylesheet" type="text/css">
+        <style>
+            body{
+                    background-image: url('../pictures/ssg.png');
+                    background-position: bottom bottom;
+                    background-attachment: local;
+                    background-repeat: no-repeat;
+            }
+        </style>
         <script>
             function check_data(){
                 var email=
@@ -42,7 +50,7 @@
 
                 if (!documnet.getElementById("userid").value.match(userid)){
                     alert("아이디는 4-16자의 영문 숫자로만 구성이 가능하며 첫 글자는 영문으로 시작해야 합니다.");
-                    document.getElementById("email").focus();
+                    document.getElementById("userid").focus();
                     return false;
                 }
 
@@ -58,10 +66,9 @@
     </head>
     <body>
         <div>
-            <h1>회원가입폼</h1>
+            <h1>회원가입</h1>
         </div>
         <nav>
-
             <span class="active"><a href="register-form.php">회원가입</a></span>
             <span><a href="login-form.php">로그인</a></span>
         </nav>
@@ -85,6 +92,7 @@
                         <td class="form-data">
                             <input type="password" name="password"
                             id="password" class="input-text"
+                            placeholder="비밀번호를 입력하세요."
                             >
                             <input type="password" name="repassword"
                             id="repassword" class="input-text"
@@ -106,7 +114,7 @@
                         <td class="form-data">
                             <input type="text" name="email" id="email"
                             class="input-text"
-                            placeholder="예)hong1234@test.co.kr">
+                            placeholder="예)hong1234@test.com">
                         </td>
                     </tr>
                     <tr>
