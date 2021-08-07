@@ -5,9 +5,7 @@
 body {width:700px; margin:0 auto; font-size:10pt;}
 a {text-decoration:none; color:black;}
 
-div { 
-    display:block;
-}
+div {display:block;}
 nav {background-color:#ABC6DD; margin:10px 0;}
 nav span {display:inline-block; padding:10px;}
 table {margin:0 auto; border:1px solid #ddd;}

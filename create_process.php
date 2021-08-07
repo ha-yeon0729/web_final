@@ -73,7 +73,7 @@
     );
 
 
-    $_SESSION['file_addr']=$uploaded_file; 
+    // $_SESSION['file_addr']=$uploaded_file; 
     $no=$_SESSION["login_user_no"];
 
     $sql="INSERT INTO topic
