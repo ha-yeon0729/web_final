@@ -11,8 +11,10 @@
     if (!$char){
         err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
     }
-    /* 대충 댓글 옆에 자기 아이디도 나타내게 하고 싶어하는 코드
+    
     $no=$_SESSION["login_user_no"];
+
+    /* 대충 댓글 옆에 자기 아이디도 나타내게 하고 싶어하는 코드
     $namesql="SELECT userid FROM book_members WHERE `no`={$no}";
     $nameresult=mysqli_query($link,$namesql);
     $nameshow="<li>".mysqli_fetch_assoc($nameresult)."</li>";
@@ -39,7 +41,6 @@
     $update_link='';
     $delete_link='';
     $filename='';
-    $date='';
     $writing_num='';
     // 글 제목을 클릭해서 topic table의 id값을 얻었다면
     // 글 제목, 내용, 작성일, 파일 이름 보여주기
@@ -58,11 +59,7 @@
         $update_link = '<a href="update.php?id='.$_GET['id'].'">수정하기</a>';
         $delete_link = '<a href="delete.php?id='.$_GET['id'].'">삭제하기</a>';
         $filename= $article['file_name'];
-        $date=$article['created'];
-        $writing_num=$filtered_id;
-        $write_link='<a href="create.php?no='.$no.'">작성하기</a>';
-        $logout_link='<a href="logout.php?no='.$no.'">로그아웃</a>';
-    
+        $writing_num=$filtered_id;    
         //댓글 보여주기
         $Sql="SELECT * FROM Reply";
         $Result=mysqli_query($link,$Sql);
@@ -75,7 +72,8 @@
             }
         }
     }
-    
+    $write_link='<a href="create.php?no='.$no.'">작성하기</a>';
+    $logout_link='<a href="logout.php?no='.$no.'">로그아웃</a>';
 
 ?>
 
@@ -126,7 +124,7 @@
         </form> 
        
         <br><br>
-        <?= $date?>
+        
         <?=$article['created']?><br><br>
 
         <span class="active"><?=$update_link?></span>
