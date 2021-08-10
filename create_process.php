@@ -13,7 +13,7 @@
     }
 
     // 파일 업로드
-    if ($_FILES['the_file']['error']>0)
+    if (($_FILES['the_file']['error']>0)&&($_FILES['the_file']['error']!=4))
     {
         echo 'Problem: ';
         switch ($_FILES['the_file']['error'])
@@ -27,9 +27,7 @@
         case 3:
             echo 'File only partially uploaded.';
             break;
-        case 4:
-            echo 'No file uploaded.';
-            break;
+
         case 6:
             echo 'Cannot upload file: No temp directory specified.';
             break;
@@ -44,24 +42,24 @@
     }
 
     //원하는 곳으로 파일을 이동시킨다.
-    $uploaded_file = './uploads/'.$_FILES['the_file']['name'];
+    if ($_FILES['the_file']['error']!=4){
+        $uploaded_file = './uploads/'.$_FILES['the_file']['name'];
 
-    if (is_uploaded_file($_FILES['the_file']['tmp_name']))
-    {
-        if (!move_uploaded_file($_FILES['the_file']['tmp_name'], $uploaded_file))
+        if (is_uploaded_file($_FILES['the_file']['tmp_name']))
         {
-            echo 'Problem: Could not move file to destination directory.';
+            if (!move_uploaded_file($_FILES['the_file']['tmp_name'], $uploaded_file))
+            {
+                echo 'Problem: Could not move file to destination directory.';
+                exit;
+            }
+        }
+        else{
+            echo 'Problem: Possible file upload attack. Filename: ';
+            echo $_FILES['the_file']['name'];
             exit;
         }
+        echo 'File uploaded successfully.';
     }
-    else{
-        echo 'Problem: Possible file upload attack. Filename: ';
-        echo $_FILES['the_file']['name'];
-        exit;
-    }
-
-    echo 'File uploaded successfully.';
-
 
     // 내가 추가=> 제목, 내용이 빈칸일 때 입력하라는 코드.
     (!empty($_POST["title"]))? $userid=mysqli_real_escape_string($link,trim($_POST["title"])): err_message("제목을 입력하세요");

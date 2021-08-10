@@ -1,45 +1,45 @@
 <?php
-require_once 'lib.php';
-$link= mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
+    require_once 'lib.php';
+    $link= mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
 
-if (!$link){
-    err_message("DB 연결에 실패했습니다.<br>");
-}
+    if (!$link){
+        err_message("DB 연결에 실패했습니다.<br>");
+    }
 
-$char=mysqli_set_charset($link,"utf8");
-if (!$char){
-    err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
-}
+    $char=mysqli_set_charset($link,"utf8");
+    if (!$char){
+        err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
+    }
 
 
-$sql="SELECT * FROM topic";
-$result=mysqli_query($link,$sql);
-$list='';
-while ($show=mysqli_fetch_array($result)){
-    $list=$list."<li><a href=\"crud.php?id={$show['id']}\">{$show['title']}</a></li>";
-}
-
-$article=array(
-    'title'=>'WELCOME',
-    'sentence'=>'Read it!',
-    'created'=>''
-);
-
-$delete_link='';
-if (isset($_GET['id'])){
-    $filtered_id=mysqli_real_escape_string($link,$_GET['id']);
-    $sql="SELECT * FROM topic WHERE id={$filtered_id}";
-
+    $sql="SELECT * FROM topic";
     $result=mysqli_query($link,$sql);
-    $show=mysqli_fetch_array($result);
+    $list='';
+    while ($show=mysqli_fetch_array($result)){
+        $list=$list."<li><a href=\"crud.php?id={$show['id']}\">{$show['title']}</a></li>";
+    }
+
     $article=array(
-        'title'=>$show['title'],
-        'sentence'=>$show['sentence'],
-        'created'=>$show['created']
+        'title'=>'WELCOME',
+        'sentence'=>'Read it!',
+        'created'=>''
     );
-    $delete_link= '<a href="delete.php?id='.$_GET['id'].'">삭제</a>';
-}
+
+    $delete_link='';
+    if (isset($_GET['id'])){
+        $filtered_id=mysqli_real_escape_string($link,$_GET['id']);
+        $sql="SELECT * FROM topic WHERE id={$filtered_id}";
+
+        $result=mysqli_query($link,$sql);
+        $show=mysqli_fetch_array($result);
+        $article=array(
+            'title'=>$show['title'],
+            'sentence'=>$show['sentence'],
+            'created'=>$show['created']
+        );
+        $delete_link= '<a href="delete.php?id='.$_GET['id'].'">삭제</a>';
+    }
 
 
 ?>

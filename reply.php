@@ -15,7 +15,6 @@
     );
 
     $no=$_SESSION["login_user_no"];
-
     $sql="INSERT INTO Reply
         (writing_num,member_id,replies,created)
     VALUES('{$filtered['writing_num']}','$no','{$filtered['reply']}',NOW())";
@@ -26,7 +25,7 @@
     if (!$result){
     err_message("SQL에 오류가 있습니다.<br>");
     } else{
-        err_message("성공적으로 댓글을 작성했습니다!","crud.php?no=$no&id=$id");
+        err_message("성공적으로 댓글을 작성했습니다!");
     }
 ?>
   

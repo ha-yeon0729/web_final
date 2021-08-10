@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Uploading...</title>
         <style>
             body{
@@ -28,9 +29,6 @@
             break;
         case 3:
             echo 'File only partially uploaded.';
-            break;
-        case 4:
-            echo 'No file uploaded.';
             break;
         case 6:
             echo 'Cannot upload file: No temp directory specified.';
@@ -62,11 +60,8 @@
         exit;
     }
     
-    
     $_SESSION["file_name"]=$_FILES['the_file']['name'];
     $_SESSION["file_addr"]=$uploaded_file; 
-
-    err_message('"성공적으로 파일을 업로드 했습니다!'.$_SESSION["file_addr"]'');
 
     /*업로드된 이미지를 보여준다.
     echo '<p>You uploaded the following image:<br/>';

@@ -15,11 +15,13 @@
     </head>
     <body>
         <div>
-            <h1>로그인</h1>
+            <center>
+                <h1>로그인</h1>
+            </center>
         </div>
         <nav>
             <span><a href="register-form.php">회원가입</a></span>
-            <span class="active"><a href="login-form.php">로그인</a></span>
+            <span><a href="login-form.php">로그인</a></span>
         </nav>
         <div>
             <form action="login.php" method="post">

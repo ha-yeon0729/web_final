@@ -70,7 +70,7 @@
         </div>
         <nav>
             <span class="active"><a href="register-form.php">회원가입</a></span>
-            <span><a href="login-form.php">로그인</a></span>
+            <span class="active"><a href="login-form.php">로그인</a></span>
         </nav>
         <div>
             <form action="register.php" method="post" onsubmit="return check_data();">

@@ -1,0 +1,9 @@
+흰색 : 70AB7F_admin	
+검정 : 1D930C_admin
+
+흰색 : mercury///// 192.168.55.185
+검정 : 1.230.221.120
+
+외부->검정>흰색>pc/moblie
+
+외부 moblie>검정 ip로 접속>흰색>wsl>web
