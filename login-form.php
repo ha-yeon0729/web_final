@@ -12,6 +12,12 @@
                     background-repeat: no-repeat;
             }
         </style>
+        <style type="text/css">
+            a:link { font-weight:bold; text-decoration:underline; }
+            a:visited { text-decoration:underline; }
+            a:active { text-decoration:underline; }
+            a:hover { color:purple; font-weight:bold; text-decoration:underline; }
+    </style>  
     </head>
     <body>
         <div>
@@ -22,6 +28,7 @@
         <nav>
             <span><a href="register-form.php">회원가입</a></span>
             <span><a href="login-form.php">로그인</a></span>
+            <span><a href="index.php">목차</a></span>
         </nav>
         <div>
             <form action="login.php" method="post">

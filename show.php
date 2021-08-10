@@ -71,7 +71,9 @@
             $filesize=filesize($show['file_address']);
             if ($filesize>0){
                 echo '<img src='.$show['file_address'].' style="width:300px; height;auto;">';
+                echo "<br>파일은 로그인 후에 다운로드 할 수 있습니다.";
             }
+
         ?>
         <br><br>
         <hr width="100%" size="1">
