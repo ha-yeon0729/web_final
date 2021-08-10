@@ -42,7 +42,7 @@
                 $List=$List."$rep&nbsp;&nbsp;$time";
             
                  //댓글 작성자 보여주기
-                $namesql="SELECT userid,`no` FROM book_members";
+                $namesql="SELECT username,`no` FROM book_members";
                 $nameresult=mysqli_query($link,$namesql);
                 if (!$nameresult){
                     echo "SQL에 오류가 있습니다.";
@@ -50,7 +50,7 @@
                 }
                 while($row=mysqli_fetch_array($nameresult)){ //검색된 결과셋에서 레코드 하나를 가져옴
                     if ($row["no"]==$Show['member_id']){ //검색된 결과가 있으면
-                        $_SESSION['replywriter']=$row["userid"];
+                        $_SESSION['replywriter']=$row["username"];
                         $replywriter=$_SESSION['replywriter'];
                         $List=$List."&nbsp;[$replywriter 님]<br>";
                     }
