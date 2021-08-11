@@ -40,7 +40,7 @@
 
     $result=mysqli_query($link,$sql);
     if (!$result){
-        err_message("SQL에 오류가 있습니다.<br>");
+        err_message("중복된 아이디입니다", echo <br>,"다른 아이디를 입력하세요!");
     }
 
     if (mysqli_affected_rows($link)==0){

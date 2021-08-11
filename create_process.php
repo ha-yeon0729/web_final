@@ -11,7 +11,7 @@
     if (!$char){
         err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
     }
-
+    $uploaded_file='';
     // 파일 업로드
     if (($_FILES['the_file']['error']>0)&&($_FILES['the_file']['error']!=4))
     {
@@ -62,12 +62,13 @@
     }
 
     // 내가 추가=> 제목, 내용이 빈칸일 때 입력하라는 코드.
-    (!empty($_POST["title"]))? $userid=mysqli_real_escape_string($link,trim($_POST["title"])): err_message("제목을 입력하세요");
-    (!empty($_POST["sentence"]))? $password=mysqli_real_escape_string($link,trim($_POST["sentence"])):err_message("내용을 입력하세요");
+    (!empty($_POST["title"]))? $_POST["title"]=mysqli_real_escape_string($link,trim($_POST["title"])): err_message("제목을 입력하세요");
+    (!empty($_POST["sentence"]))? $_POST['sentence']=mysqli_real_escape_string($link,trim($_POST["sentence"])):err_message("내용을 입력하세요");
 
     $filtered=array(
-        'title'=>mysqli_real_escape_string($link,$_POST['title']),
-        'sentence'=>mysqli_real_escape_string($link,$_POST['sentence'])
+        'title'=>mysqli_real_escape_string($link,htmlentities($_POST['title'])),
+        'sentence'=>mysqli_real_escape_string($link,htmlentities($_POST['sentence']))
+  
     );
 
 

@@ -9,8 +9,9 @@
     if (!$char){
         err_message("UTF-8 문자셋을 설정하지 못했습니다.<br>");
     }
+    (!empty($_POST["reply"]))? $reply=mysqli_real_escape_string($link,trim($_POST["reply"])): err_message("댓글을 입력하세요");
     $filtered=array(
-        'reply'=>mysqli_real_escape_string($link,$_POST['reply']),
+        'reply'=>mysqli_real_escape_string($link,htmlentities($_POST['reply'])),
         'writing_num'=>mysqli_real_escape_string($link,$_POST['글_번호'])
     );
 
